@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const notes = require("express").Router();
 const dbPath = path.join(__dirname, '../db/db.json'); // db pathg
+const { v4: uuidv4 } = require('uuid'); // Creats unique ids
 
 const readFromFile = () => {
   return JSON.parse(fs.readFileSync(dbPath, 'utf8')); //function to read file
@@ -19,6 +20,7 @@ notes.post('/', (req, res) => { // post route reads db.json and creates a newNot
     const notes = readFromFile();
     console.log(notes)
     const newNote = {
+        id: uuidv4(),
         title: req.body.title,
         text: req.body.text
     };
