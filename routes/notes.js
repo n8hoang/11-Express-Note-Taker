@@ -29,4 +29,11 @@ notes.post('/', (req, res) => { // post route reads db.json and creates a newNot
     res.json(newNote);
 });
 
+notes.delete('/:id', (req, res) => { // delete route reads the db.json and filters out any note that doesnt match the id given in the url parameter.
+    const notes = readFromFile();
+    const updatedNotes = notes.filter(note => note.id !== req.params.id);
+    writeToFile(updatedNotes);
+    res.json({ message: "Note deleted" });
+});
+
 module.exports = notes;
