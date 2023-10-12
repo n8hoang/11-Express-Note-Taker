@@ -24,6 +24,7 @@ Type in your notes and click save note in the top right to save your note and ha
 ## License
 
 This project is licensed under the [MIT](https://opensource.org/licenses/MIT) license.
+![demo](./images/Screenshot 2023-10-12 120701.png)
 
 ## Contributing
 
